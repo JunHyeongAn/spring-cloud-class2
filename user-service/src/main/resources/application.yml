@@ -1,0 +1,17 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: user-service
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      # 백본 클라우드위치를 지정(백본에 이 서비스를 등록하겠다 라는 뜻)
+
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
